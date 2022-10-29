@@ -6,6 +6,8 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import Logo from "../../../Assets/Logo.png";
+import { FaMoon, FaSun } from "react-icons/fa";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 const Header = () => {
   return (
@@ -29,22 +31,35 @@ const Header = () => {
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="mx-auto gap-5">
+          {/* pages */}
+          <Nav className="mx-auto gap-4">
             <Link className="text-decoration-none text-dark" to="/courses">
               <Button variant="light">Courses</Button>
             </Link>
             <Link className="text-decoration-none text-dark" to="/faq">
-            <Button className="px-4" variant="light">FAQ</Button>
+              <Button className="px-4" variant="light">
+                FAQ
+              </Button>
             </Link>
             <Link className="text-decoration-none text-dark" to="/blog">
-            <Button className="px-4" variant="light">Blog</Button>
+              <Button className="px-4" variant="light">
+                Blog
+              </Button>
             </Link>
           </Nav>
-          <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
+
+          {/* user */}
+          <Nav className="align-items-center gap-3">
+            <FaMoon role='button' className="fs-5 "/>
+            <FaSun role='button' className="fs-5 "/>
+            <ButtonGroup>
+              <Link className="text-decoration-none me-3" to="/login">
+                <Button variant="outline-dark">Login</Button>
+              </Link>
+              <Link className="text-decoration-none" to="/register">
+                <Button variant="outline-dark">Register</Button>
+              </Link>
+            </ButtonGroup>
           </Nav>
         </Navbar.Collapse>
       </Container>
