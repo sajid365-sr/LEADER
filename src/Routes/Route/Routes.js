@@ -43,6 +43,11 @@ export const router = createBrowserRouter([
         {
           path:'/terms',
           element:<TermsAndCondition></TermsAndCondition>
+        },
+        {
+          path:'/course/:id',
+          
+          element:<Courses></Courses>
         }
     ]
   }

@@ -1,9 +1,9 @@
 
 import { Image } from "react-bootstrap";
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToggleThemeContext } from '../../Contexts/ThemeContext/ThemeContext';
 import facebook from "../../Assets/Icons/facebook.png";
 import google from "../../Assets/Icons/google.png";
@@ -14,7 +14,12 @@ import { FacebookAuthProvider, GoogleAuthProvider, GithubAuthProvider } from "fi
 
 const Login = () => {
     const {theme} = useContext(ToggleThemeContext);
-    const {providerLogin} = useContext(AuthContext);
+    const {providerLogin, signIn, setLoading} = useContext(AuthContext);
+
+    const [error, setError] = useState('');
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate();
 
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
@@ -26,6 +31,20 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+
+        signIn(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+            form.reset();
+            setError('');
+        })
+        .catch(e =>{
+            setError(e.message)
+        })
+        .finally(() => {
+          setLoading(false);
+        })
     }
 
     // google sign in
@@ -89,7 +108,7 @@ const Login = () => {
 
 
       <Button
-        style={{background:'linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))'}}
+        style={{background:'linear-gradient(to right, rgb(106 97 249), rgb(213 215 78))'}}
         className="me-4 fs-5 px-5 w-100 border-0 text-dark py-2 shadow-lg fw-semibold"
         type="submit"
       >
@@ -120,7 +139,7 @@ const Login = () => {
           <p className='text-center mt-4'>New to here? <Link className={`fw-semibold ${theme ?'text-dark' : 'text-info'}`} to="/register">Register</Link></p>
       </>
 
-      <Form.Text className="text-danger">{}</Form.Text>
+      <p className="text-danger text-center">{error}</p>
     </Form>
 
 

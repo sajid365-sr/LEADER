@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Image } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToggleThemeContext } from "../../Contexts/ThemeContext/ThemeContext";
 import facebook from "../../Assets/Icons/facebook.png";
 import google from "../../Assets/Icons/google.png";
@@ -17,7 +17,9 @@ import {
 const Register = () => {
   const { theme } = useContext(ToggleThemeContext);
   const [accepted, setAccepted] = useState(false);
-  const { providerLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const { providerLogin, createUser, updateUserInfo } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const googleProvider = new GoogleAuthProvider();
   const facebookProvider = new FacebookAuthProvider();
@@ -26,26 +28,27 @@ const Register = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
 
-    // createUser(email, password)
-    //   .then((result) => {
-    //     const user = result.user;
-    //     console.log(user);
-    //     updateUserProfile(name, photoURL);
-    //     handleEmailVerification();
-    //     setError("");
-    //     form.reset();
-    //     toast.success('Check your email to verify.');
-    //     navigate('/login');
-    //   })
-    //   .catch((e) => {
-    //     setError(e.message);
-    //   });
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        updateUserProfile(name);
+        // handleEmailVerification();
+        setError("");
+        form.reset();
+        // toast.success('Check your email to verify.');
+        navigate('/login');
+      })
+      .catch((e) => {
+        setError(e.message);
+      });
   };
 
   // google sign in
@@ -75,6 +78,15 @@ const Register = () => {
         console.log(user);
       })
       .catch((e) => console.error(e));
+  };
+// update profile
+const updateUserProfile = (name) => {
+    const profile = {
+      displayName: name,
+    };
+    updateUserInfo(profile)
+      .then(() => {})
+      .catch((error) => console.error(error));
   };
 
   const handleAccepted = (event) => {
@@ -162,7 +174,7 @@ const Register = () => {
         <Button
           style={{
             background:
-              "linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))",
+              "linear-gradient(to right, rgb(106 97 249), rgb(213 215 78))",
           }}
           className="me-4 fs-5 px-5 w-100 border-0 text-dark py-2 shadow-lg fw-semibold"
           type="submit"
@@ -208,7 +220,7 @@ const Register = () => {
           </p>
         </>
 
-        <Form.Text className="text-danger">{}</Form.Text>
+        <Form.Text className="text-danger">{error}</Form.Text>
       </Form>
     </div>
   );
