@@ -10,10 +10,13 @@ import Logo1 from "../../../Assets/Logo1.jpg"
 import { FaMoon, FaSun } from "react-icons/fa";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { ToggleThemeContext } from "../../../Contexts/ThemeContext/ThemeContext";
+import { AuthContext } from "../../../Contexts/UserContext/UserContext";
 
 const Header = () => {
 
   const {theme, setTheme} = useContext(ToggleThemeContext);
+  const {user} = useContext(AuthContext);
+  
   
 
   return (

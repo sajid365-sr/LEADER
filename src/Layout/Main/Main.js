@@ -11,7 +11,7 @@ const Main = () => {
 
   const {theme} = useContext(ToggleThemeContext);
   const {light,dark} = themeColor;
-  console.log(light,dark)
+ 
   
 
   return (

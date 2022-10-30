@@ -1,10 +1,13 @@
 
-
+import { Image } from "react-bootstrap";
 import React, { useContext } from 'react';
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { ToggleThemeContext } from '../../Contexts/ThemeContext/ThemeContext';
+import facebook from "../../Assets/Icons/facebook.png";
+import google from "../../Assets/Icons/google.png";
+import github from "../../Assets/Icons/github.png";
 
 
 const Login = () => {
@@ -52,10 +55,28 @@ const Login = () => {
         style={{background:'linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))'}}
         className="me-4 fs-5 px-5 w-100 border-0 text-dark py-2 shadow-lg fw-semibold"
         type="submit"
-        // disabled={!accepted}
       >
         Login
       </Button>
+
+      <div className="text-center my-4">
+          <p className="mb-2 fw-semibold">Or</p>
+          <p className="text-secondary ">Login Using</p>
+          <span>
+            <Image src={google} style={{ width: "30px" }} role="button"></Image>
+          </span>
+          <span>
+            <Image
+              src={facebook}
+              style={{ width: "30px" }}
+              className="mx-3"
+              role="button"
+            ></Image>
+          </span>
+          <span>
+            <Image src={github} style={{ width: "30px" }} role="button"></Image>
+          </span>
+        </div>
 
       <>
           <p className='text-center mt-4'>New to here? <Link className={`fw-semibold ${theme ?'text-dark' : 'text-info'}`} to="/register">Register</Link></p>
