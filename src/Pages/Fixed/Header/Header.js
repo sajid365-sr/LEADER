@@ -91,7 +91,7 @@ const Header = () => {
             <>
               {user?.uid ? (
                 <>
-                  <span>{user?.displayName}</span>
+                  <span>{user?.displayName? user.displayName : 'Unknown'}</span>
                   <Button
                     className="ms-3"
                     onClick={handleLogOut}
@@ -101,6 +101,7 @@ const Header = () => {
                   </Button>
                 </>
               ) : (
+                
                 <>
                   <ButtonGroup>
               <Link className="text-decoration-none me-3" to="/login">

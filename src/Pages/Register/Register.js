@@ -67,7 +67,7 @@ const Register = () => {
       })
       .catch((e) => console.error(e));
   };
-  //   facebook sign in
+  //   gitHub sign in
   const handleGitHubSignIn = () => {
     providerLogin(gitHubProvider)
       .then((result) => {

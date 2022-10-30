@@ -9,15 +9,16 @@ import facebook from "../../Assets/Icons/facebook.png";
 import google from "../../Assets/Icons/google.png";
 import github from "../../Assets/Icons/github.png";
 import { AuthContext } from "../../Contexts/UserContext/UserContext";
-import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { FacebookAuthProvider, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
 
 const Login = () => {
     const {theme} = useContext(ToggleThemeContext);
     const {providerLogin} = useContext(AuthContext);
-    
+
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
 
     const handleSubmit = (event) =>{
         event.preventDefault();
@@ -46,6 +47,18 @@ const Login = () => {
     })
     .catch(e => console.error(e));
   }
+  //   gitHub sign in
+  const handleGitHubSignIn = () => {
+    providerLogin(gitHubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((e) => console.error(e));
+  };
+
+
+
     return (
         <div>
             <Form  onSubmit={handleSubmit} style={{width:'50%'}} className={`mx-auto px-5 py-3 rounded rounded-4 ${theme? 'bg-secondary bg-opacity-10':'bg-secondary bg-opacity-50 '}`}>
@@ -99,7 +112,7 @@ const Login = () => {
             ></Image>
           </span>
           <span>
-            <Image src={github} style={{ width: "30px" }} role="button"></Image>
+            <Image onClick={handleGitHubSignIn} src={github} style={{ width: "30px" }} role="button"></Image>
           </span>
         </div>
 
