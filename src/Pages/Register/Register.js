@@ -33,7 +33,7 @@ const Register = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
-    const confirm = form.confirm.value;
+    // const confirm = form.confirm.value;
 
     createUser(email, password)
       .then((result) => {

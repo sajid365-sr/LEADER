@@ -17,9 +17,9 @@ const Login = () => {
     const {providerLogin, signIn, setLoading} = useContext(AuthContext);
 
     const [error, setError] = useState('');
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
-    const navigate = useNavigate();
+    // const location = useLocation();
+    // const from = location.state?.from?.pathname || "/";
+    // const navigate = useNavigate();
 
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
@@ -135,9 +135,9 @@ const Login = () => {
           </span>
         </div>
 
-      <>
+      
           <p className='text-center mt-4'>New to here? <Link className={`fw-semibold ${theme ?'text-dark' : 'text-info'}`} to="/register">Register</Link></p>
-      </>
+      
 
       <p className="text-danger text-center">{error}</p>
     </Form>
