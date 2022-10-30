@@ -17,7 +17,8 @@ const Header = () => {
   
 
   return (
-    <Navbar
+    <div>
+      <Navbar
       collapseOnSelect
       expand="lg"
       className="shadow-lg"
@@ -85,6 +86,11 @@ const Header = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    {
+      !theme && <hr className="my-0"/>
+    }
+    </div>
+    
   );
 };
 
