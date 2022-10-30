@@ -13,7 +13,7 @@ const UserContext = ({children}) => {
     const [loading, setLoading] = useState(true);
 
 
-    // Google sign up
+    // Google/Facebook/GitHub sign up
     const providerLogin = (provider) =>{
         // setLoading(true);
         return signInWithPopup(auth, provider);

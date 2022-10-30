@@ -8,10 +8,16 @@ import { ToggleThemeContext } from '../../Contexts/ThemeContext/ThemeContext';
 import facebook from "../../Assets/Icons/facebook.png";
 import google from "../../Assets/Icons/google.png";
 import github from "../../Assets/Icons/github.png";
+import { AuthContext } from "../../Contexts/UserContext/UserContext";
+import { FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 
 const Login = () => {
     const {theme} = useContext(ToggleThemeContext);
+    const {providerLogin} = useContext(AuthContext);
+    
+    const googleProvider = new GoogleAuthProvider();
+    const facebookProvider = new FacebookAuthProvider();
 
     const handleSubmit = (event) =>{
         event.preventDefault();
@@ -21,7 +27,25 @@ const Login = () => {
         const password = form.password.value;
     }
 
+    // google sign in
+    const handleGoogleSignIn = () =>{
+        providerLogin(googleProvider)
+        .then(result =>{
+            const user = result.user;
+            console.log(user)
+        })
+        .catch(e => console.error(e));
+    }
 
+    //   facebook sign in
+  const handleFacebookSignIn = () =>{
+    providerLogin(facebookProvider)
+    .then(result =>{
+        const user = result.user;
+        console.log(user)
+    })
+    .catch(e => console.error(e));
+  }
     return (
         <div>
             <Form  onSubmit={handleSubmit} style={{width:'50%'}} className={`mx-auto px-5 py-3 rounded rounded-4 ${theme? 'bg-secondary bg-opacity-10':'bg-secondary bg-opacity-50 '}`}>
@@ -63,10 +87,11 @@ const Login = () => {
           <p className="mb-2 fw-semibold">Or</p>
           <p className="text-secondary ">Login Using</p>
           <span>
-            <Image src={google} style={{ width: "30px" }} role="button"></Image>
+            <Image onClick={handleGoogleSignIn} src={google} style={{ width: "30px" }} role="button"></Image>
           </span>
           <span>
             <Image
+            onClick={handleFacebookSignIn}
               src={facebook}
               style={{ width: "30px" }}
               className="mx-3"

@@ -2,20 +2,26 @@ import React, { useContext, useState } from "react";
 import { Image } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ToggleThemeContext } from "../../Contexts/ThemeContext/ThemeContext";
 import facebook from "../../Assets/Icons/facebook.png";
 import google from "../../Assets/Icons/google.png";
 import github from "../../Assets/Icons/github.png";
 import { AuthContext } from "../../Contexts/UserContext/UserContext";
-import { GoogleAuthProvider } from "firebase/auth";
+import {
+  FacebookAuthProvider,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+} from "firebase/auth";
 
 const Register = () => {
   const { theme } = useContext(ToggleThemeContext);
   const [accepted, setAccepted] = useState(false);
-  const {providerLogin} = useContext(AuthContext);
+  const { providerLogin } = useContext(AuthContext);
 
-    const googleProvider = new GoogleAuthProvider();
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
+  const gitHubProvider = new GithubAuthProvider();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -42,10 +48,34 @@ const Register = () => {
     //   });
   };
 
+  // google sign in
+  const handleGoogleSignIn = () => {
+    providerLogin(googleProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((e) => console.error(e));
+  };
 
-  const handleGoogleSignIn = () =>{
-      providerLogin(googleProvider);
-  }
+  //   facebook sign in
+  const handleFacebookSignIn = () => {
+    providerLogin(facebookProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((e) => console.error(e));
+  };
+  //   facebook sign in
+  const handleGitHubSignIn = () => {
+    providerLogin(gitHubProvider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((e) => console.error(e));
+  };
 
   const handleAccepted = (event) => {
     setAccepted(event.target.checked);
@@ -145,10 +175,16 @@ const Register = () => {
           <p className="mb-2 fw-semibold">Or</p>
           <p className="text-secondary ">Sign Up Using</p>
           <span>
-            <Image onClick={handleGoogleSignIn} src={google} style={{ width: "30px" }} role="button"></Image>
+            <Image
+              onClick={handleGoogleSignIn}
+              src={google}
+              style={{ width: "30px" }}
+              role="button"
+            ></Image>
           </span>
           <span>
             <Image
+              onClick={handleFacebookSignIn}
               src={facebook}
               style={{ width: "30px" }}
               className="mx-3"
@@ -156,7 +192,7 @@ const Register = () => {
             ></Image>
           </span>
           <span>
-            <Image src={github} style={{ width: "30px" }} role="button"></Image>
+            <Image onClick={handleGitHubSignIn} src={github} style={{ width: "30px" }} role="button"></Image>
           </span>
         </div>
 
