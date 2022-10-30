@@ -69,9 +69,13 @@ const Header = () => {
             
             {
               theme? 
-              <FaSun onClick={() => {setTheme(false)}} role='button' className="fs-5 "/>
+              <span  onClick={() => {setTheme(false)}} role='button' className={`${theme? 'border border-2 p-2 rounded rounded-circle':''}`}>
+                <FaSun className="fs-5 mb-1"/>
+              </span>
               :
-              <FaMoon onClick={() => {setTheme(true)}} role='button' className="fs-5 "/>
+              <span onClick={() => {setTheme(true)}} role='button' className={`${theme? '':'border border-2 p-2 rounded rounded-circle'}`}>
+                <FaMoon className="fs-5 mb-1" />
+              </span>
             }
             </div>
             <ButtonGroup>

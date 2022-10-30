@@ -5,6 +5,9 @@ import AsideRight from "../../Pages/Moving/AsideRight/AsideRight";
 import Courses from "../../Pages/Courses/Courses"
 import FAQ from "../../Pages/FAQ/FAQ"
 import Blog from "../../Pages/Blog/Blog"
+import Login from "../../Pages/Login/Login";
+import Register from "../../Pages/Register/Register";
+import TermsAndCondition from "../../Pages/Others/TermsAndCondition";
 
 
 export const router = createBrowserRouter([
@@ -28,6 +31,18 @@ export const router = createBrowserRouter([
         {
           path:'/blog',
           element:<Blog></Blog>
+        },
+        {
+          path:'/login',
+          element:<Login></Login>
+        },
+        {
+          path:'/register',
+          element:<Register></Register>
+        },
+        {
+          path:'/terms',
+          element:<TermsAndCondition></TermsAndCondition>
         }
     ]
   }

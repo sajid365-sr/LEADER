@@ -17,15 +17,15 @@ const Main = () => {
   return (
     <div style={theme? {backgroundColor:`${light.background}`,color:`${light.foreground}`}: {backgroundColor:`${dark.background}`,color:`${dark.foreground}`}}>
       <Header></Header>
-      <Container>
+      <Container className="my-5">
         <Row>
           {/* left */}
-          <Col lg="4">
+          <Col  className={!theme && "border-end border-2"} lg="3">
             <AsideLeft></AsideLeft>
           </Col>
 
           {/* right */}
-          <Col lg="8">
+          <Col lg="9">
             <Outlet></Outlet>
           </Col>
         </Row>
