@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Image } from "react-bootstrap";
+import { Image, OverlayTrigger } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -11,11 +11,19 @@ import { FaMoon, FaSun, FaUserAlt } from "react-icons/fa";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import { ToggleThemeContext } from "../../../Contexts/ThemeContext/ThemeContext";
 import { AuthContext } from "../../../Contexts/UserContext/UserContext";
+import Tooltip from 'react-bootstrap/Tooltip';
 
 const Header = () => {
 
   const {theme, setTheme} = useContext(ToggleThemeContext);
   const {user, logOut} = useContext(AuthContext);
+
+// Tooltip
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      {user.displayName}
+    </Tooltip>
+  );
   
   const handleLogOut = () => {
     logOut()
@@ -120,11 +128,19 @@ const Header = () => {
             <Link className="ms-3" to='/profile'>
               {user?.photoURL ? (
                 <>
+                <OverlayTrigger
+                placement="bottom"
+                delay={{ show: 100, hide: 400 }}
+                overlay={renderTooltip}
+                >
+
                   <Image
                     src={user.photoURL}
                     roundedCircle
                     style={{ height: "35px" }}
                   ></Image>
+
+                </OverlayTrigger>
                 </>
               ) : 
               user?.uid &&

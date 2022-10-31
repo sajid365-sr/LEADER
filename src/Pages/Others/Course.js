@@ -10,26 +10,26 @@ const Course = ({ cData }) => {
     <Col lg='4'>
       <Card className="mb-5">
         <Card.Body>
-          <Card.Title>{topic}</Card.Title>
           <Card.Img variant="top" src={image} style={{ width: "100%" }} />
+          <Card.Title>{topic}</Card.Title>
           <Card.Text>
-            {details.length > 250 ? (
+            {details.length > 100 ? (
               <>
-                {details.slice(0, 250) + "..."}
-                <Link to={`/news/${id}`}>Read More</Link>
+                {details.slice(0, 100) + "..."}
+                <Link to={`/course/details/${id}`}>Read More</Link>
               </>
             ) : (
               details
             )}
             <div>
-              <p className="mb-0">{instructor}</p>
+              <p className="mt-1"><span className="fw-semibold">Instructor: </span>{instructor}</p>
             </div>
 
-            <div>
-              <span>Ratings: {ratings}</span>
-              <span>Enrolled: {enrolled}</span>
+            <div className="d-flex justify-content-between mt-3 mb-2">
+              <span className="fw-semibold">Ratings: {ratings}</span>
+              <span className="fw-semibold">Enrolled: {enrolled}</span>
             </div>
-            <p>{price}</p>
+            <p className="fw-semibold fs-4">{price}</p>
           </Card.Text>
         </Card.Body>
       </Card>
