@@ -1,13 +1,14 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main/Main";
-import AsideRight from "../../Pages/Moving/AsideRight/AsideRight";
 import Courses from "../../Pages/Courses/Courses"
 import FAQ from "../../Pages/FAQ/FAQ"
 import Blog from "../../Pages/Blog/Blog"
 import Login from "../../Pages/Login/Login";
 import Register from "../../Pages/Register/Register";
 import TermsAndCondition from "../../Pages/Others/TermsAndCondition";
+import CourseLayout from "../../Layout/Course/CourseLayout";
+import CourseDetails from "../../Pages/Others/CourseDetails";
 
 
 export const router = createBrowserRouter([
@@ -16,13 +17,21 @@ export const router = createBrowserRouter([
     element: <Main></Main>,
     children:[
         {
-            path:'/',
-            element:<AsideRight></AsideRight>
-        },
-        {
             path:'/courses',
-            loader: () => fetch('http://localhost:5000/'),
-            element:<Courses></Courses>
+            element: <CourseLayout></CourseLayout>,
+            children:[
+              {
+                path:'/courses',
+                loader: () => fetch('http://localhost:5000/'),
+                element:<Courses></Courses>
+              },
+              {
+                path:'/courses/:id',
+                loader:({params}) => fetch(`http://localhost:5000/course/${params.id}`),
+                element:<CourseDetails></CourseDetails>
+              }
+            ],
+            
         },
         {
             path:'/faq',
@@ -44,11 +53,6 @@ export const router = createBrowserRouter([
         {
           path:'/terms',
           element:<TermsAndCondition></TermsAndCondition>
-        },
-        {
-          path:'/course/:id',
-          loader:({params}) => fetch(`http://localhost:5000/course/${params.id}`),
-          element:<Courses></Courses>
         },
         {
           path:'/course/details/:id'

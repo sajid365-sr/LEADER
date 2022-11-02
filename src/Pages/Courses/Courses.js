@@ -3,9 +3,10 @@ import { useLoaderData } from "react-router-dom";
 import { Row } from "react-bootstrap";
 import Course from "../Others/Course";
 
+
 const Courses = () => {
   const courses = useLoaderData();
-
+  
   return (
     <Row>
       {courses.map((course) => (

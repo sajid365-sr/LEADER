@@ -11,15 +11,15 @@ const AsideLeft = () => {
       .then((res) => res.json())
       .then((data) => setCourse(data));
   }, []);
-  console.log(course);
+
+  
   return (
     <div>
-      <h2>Total Number of course is: {course.length}</h2>
-
+      
       {course.map((one) => (
         <Link
           className={`d-block mb-4 text-decoration-none`}
-          to={`course/${one.id}`}
+          to={`/courses/${one.id}`}
         >
           <button
             style={{ width: "90%" }}
