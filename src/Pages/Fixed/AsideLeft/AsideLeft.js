@@ -16,15 +16,21 @@ const AsideLeft = () => {
     <div>
       <h2>Total Number of course is: {course.length}</h2>
 
-      {
-      course.map((one) => (
-        <p key={one.id}>
-          <Link to={`course/${one.id}`} >
+      {course.map((one) => (
+        <Link
+          className={`d-block mb-4 text-decoration-none`}
+          to={`course/${one.id}`}
+        >
+          <button
+            style={{ width: "90%" }}
+            className={`fw-semibold border-0 px-3 py-2 ${
+              theme ? "text-dark" : "text-info bg-dark"
+            }`}
+          >
             {one.topic}
-          </Link>
-        </p>
-      ))
-      }
+          </button>
+        </Link>
+      ))}
     </div>
   );
 };
