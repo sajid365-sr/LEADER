@@ -67,6 +67,9 @@ const Footer = () => {
            
           </Col>
         </Row>
+        <Row className="text-center mt-4" style={{letterSpacing:'3px'}}>
+          <p>&copy; 2022, All right reserved by Leader.inc</p>
+        </Row>
       </Container>
     </div>
   );

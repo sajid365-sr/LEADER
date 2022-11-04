@@ -8,8 +8,9 @@ const Blog = () => {
 
   return (
     <Container>
+      <h3 className="text-center my-5">Some Important Questions You Should Know About !!</h3>
       <article
-        className={`w-75 mx-auto p-5 rounded my-5 ${
+        className={`w-75 mx-auto p-5 rounded mb-5 ${
           theme ? "bg-secondary bg-opacity-10" : "bg-dark"
         }`}
       >

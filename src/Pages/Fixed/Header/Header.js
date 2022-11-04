@@ -36,7 +36,7 @@ const Header = () => {
       <Navbar
       collapseOnSelect
       expand="lg"
-      className="shadow-lg"
+      className="shadow-lg py-2"
       
     >
       <Container>
@@ -86,11 +86,11 @@ const Header = () => {
             {
               theme? 
               <span  onClick={() => {setTheme(false)}} role='button' className={`${theme? 'border border-2 p-2 rounded rounded-circle':''}`}>
-                <FaSun className="fs-5 mb-1"/>
+                <FaSun style={{fontSize:'20px'}} className="mb-1"/>
               </span>
               :
               <span onClick={() => {setTheme(true)}} role='button' className={`${theme? '':'border border-2 p-2 rounded rounded-circle'}`}>
-                <FaMoon className="fs-5 mb-1" />
+                <FaMoon style={{fontSize:'20px'}} className="mb-1" />
               </span>
             }
             </div>
