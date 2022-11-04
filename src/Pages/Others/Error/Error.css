@@ -1,0 +1,86 @@
+
+
+.main{
+    background-image: linear-gradient(rgba(70, 29, 165, 0.671),rgba(29, 122, 165, 0.774));
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: poppins;
+}
+.content{
+    height: 70vh;
+    width: 70%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10%;
+}
+.content h1{
+    font-size: 200px;
+    font-weight: bold;
+    background: linear-gradient(rgba(29, 122, 165, 0.774),rgba(70, 29, 165, 0.671));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.content h2{
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(82, 82, 82);
+}
+.content p{
+    font-size: 22px;
+    text-align: center;
+}
+.btn{
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+.btn button{
+    border: 3px solid white;
+    padding: 15px 25px;
+    border-radius: 25px;
+    background-color: rgba(70, 29, 165, 0.671);
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.btn button:hover{
+    background-color: rgb(209, 203, 203);
+    border: 3px solid rgba(70, 29, 165, 0.671);
+    color: rgba(29, 122, 165, 0.774);
+    font-weight: bold;
+}
+
+
+@media only screen and (max-width:575px) {
+    .content{
+        width: 90%;
+        padding: 2%;
+    }
+    .content h1{
+        font-size: 90px;
+    }
+    .content h2{
+        font-size: 30px;
+        text-align: center;
+    }
+    .content p{
+        font-size: 16px;
+        margin-top: 20px;
+    }
+    .btn{
+        width: 100%;
+        gap: 10px;
+    }
+    .btn button{
+        font-size: 16px;
+        letter-spacing: normal;
+        font-weight: 400;
+        padding: 8px 10px;
+        border-radius: 10px;
+    }
+}

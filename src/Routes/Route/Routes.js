@@ -11,6 +11,7 @@ import CourseLayout from "../../Layout/Course/CourseLayout";
 import CourseDetails from "../../Pages/Others/CourseDetails";
 import Checkout from "../../Pages/Others/Checkout";
 import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
+import Error from "../../Pages/Others/Error/Error";
 
 
 export const router = createBrowserRouter([
@@ -68,6 +69,10 @@ export const router = createBrowserRouter([
           
         }
     ]
+  },
+  {
+    path:'*',
+    element:<Error></Error>
   }
 
 ]);
