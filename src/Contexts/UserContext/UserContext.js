@@ -2,6 +2,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth';
 import app from '../../Firebase/Firebase.config';
+import toast from 'react-hot-toast';
 
 
 
@@ -41,6 +42,7 @@ const UserContext = ({children}) => {
     useEffect( () =>{
         const unsubscribe = onAuthStateChanged(auth, (createUser =>{
             setUser(createUser);
+            toast.success("Login Successfully");
             setLoading(false);
         }))
         return () =>{

@@ -63,11 +63,8 @@ export const router = createBrowserRouter([
         {
           path:'/terms',
           element:<TermsAndCondition></TermsAndCondition>
-        },
-        {
-          path:'/course/details/:id'
-          
         }
+      
     ]
   },
   {
