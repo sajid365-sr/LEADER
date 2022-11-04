@@ -25,17 +25,17 @@ export const router = createBrowserRouter([
             children:[
               {
                 path:'/courses',
-                loader: () => fetch('http://localhost:5000/'),
+                loader: () => fetch('https://leader-six.vercel.app/'),
                 element:<Courses></Courses>
               },
               {
                 path:'/courses/:id',
-                loader:({params}) => fetch(`http://localhost:5000/course/${params.id}`),
+                loader:({params}) => fetch(`https://leader-six.vercel.app/course/${params.id}`),
                 element:<CourseDetails></CourseDetails>
               },
               {
                 path:'/courses/checkout/:id',
-                loader:({params}) => fetch(`http://localhost:5000/course/${params.id}`),
+                loader:({params}) => fetch(`https://leader-six.vercel.app/course/${params.id}`),
                 element: <PrivateRoutes>
                   <Checkout></Checkout>
                 </PrivateRoutes>
