@@ -21,12 +21,12 @@ This project was created by `Sajid Sorker`.
 `5` Tried to responsive the site as well as.
 
 
-## F O L L O W   M E
+## FOLLOW ME
 
 Linkedin [https://www.linkedin.com/in/sajid365-sr/]
 Twitter [https://twitter.com/sajid365_sr]
 Facebook [https://www.facebook.com/sajid365.sr]
 
 
-## !!!! S E E  Y O U  I N  T H E  N E X T  P R O J E C T !!!!
+## !!!! SEE YOU IN THE NEXT PROJECT !!!!
 
