@@ -1,0 +1,13 @@
+
+.footerLink{
+   text-decoration: none;
+   text-align: center;
+   display: block;
+   width: 30%;
+   margin: auto;
+   margin-bottom: 20px;
+   padding-bottom: 10px;
+   font-size: 18px;
+   border-bottom: 1px solid whitesmoke;
+   letter-spacing: 3px;
+}

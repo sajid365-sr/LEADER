@@ -96,8 +96,8 @@ const updateUserProfile = (name) => {
   return (
     <div>
       <Form
-        style={{ width: "50%" }}
-        className={`mx-auto px-5 py-3 rounded rounded-4 ${
+        style={{ width: "40%" }}
+        className={`mx-auto px-5 py-3 my-5 rounded rounded-4 ${
           theme ? "bg-secondary bg-opacity-10" : "bg-secondary bg-opacity-50 "
         }`}
         onSubmit={handleSubmit}

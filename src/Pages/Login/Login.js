@@ -17,9 +17,9 @@ const Login = () => {
     const {providerLogin, signIn, setLoading} = useContext(AuthContext);
 
     const [error, setError] = useState('');
-    // const location = useLocation();
-    // const from = location.state?.from?.pathname || "/";
-    // const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate();
 
     const googleProvider = new GoogleAuthProvider();
     const facebookProvider = new FacebookAuthProvider();
@@ -32,12 +32,14 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        // email-password login
         signIn(email, password)
         .then(result => {
             const user = result.user;
             console.log(user);
             form.reset();
             setError('');
+            navigate(from, {replace : true});
         })
         .catch(e =>{
             setError(e.message)
@@ -53,6 +55,7 @@ const Login = () => {
         .then(result =>{
             const user = result.user;
             console.log(user)
+            navigate(from, {replace : true});
         })
         .catch(e => console.error(e));
     }
@@ -63,6 +66,7 @@ const Login = () => {
     .then(result =>{
         const user = result.user;
         console.log(user)
+        navigate(from, {replace : true});
     })
     .catch(e => console.error(e));
   }
@@ -72,6 +76,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate(from, {replace : true});
       })
       .catch((e) => console.error(e));
   };
@@ -80,7 +85,7 @@ const Login = () => {
 
     return (
         <div>
-            <Form  onSubmit={handleSubmit} style={{width:'50%'}} className={`mx-auto px-5 py-3 rounded rounded-4 ${theme? 'bg-secondary bg-opacity-10':'bg-secondary bg-opacity-50 '}`}>
+            <Form  onSubmit={handleSubmit} style={{width:'40%'}} className={`mx-auto my-5 px-5 py-5 rounded rounded-4 ${theme? 'bg-secondary bg-opacity-10':'bg-secondary bg-opacity-50 '}`}>
             <h2 className="text-uppercase text-center mt-3 mb-4">Login</h2>
       
 
