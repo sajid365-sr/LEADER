@@ -5,13 +5,17 @@ import { Link } from "react-router-dom";
 import logo from "../../../Assets/Logo.png";
 import logo1 from "../../../Assets/Logo1.jpg";
 import { ToggleThemeContext } from "../../../Contexts/ThemeContext/ThemeContext";
-import './Footer.css'
+import './Footer.css';
+import { FaFacebookSquare, FaLinkedin, FaTwitterSquare, FaInstagramSquare } from "react-icons/fa";
 
 const Footer = () => {
   const { theme } = useContext(ToggleThemeContext);
 
   return (
-    <div className="bg-secondary bg-opacity-25 py-5">
+    <div className={`py-5 ${theme? "bg-secondary bg-opacity-25" : "bg-black"}`}>
+      {
+        !theme && <hr className="mb-5"/>
+      }
       <Container>
         <Row>
           <Col>
@@ -28,12 +32,14 @@ const Footer = () => {
               L E A D E R
             </span>
             <p className="mt-3">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa
-              rerum excepturi praesentium saepe tempora vel, ducimus corporis
-              doloribus cumque? Debitis quo id est. Doloremque nihil adipisci
-              ipsam ullam accusamus veniam quasi. Ea totam placeat aperiam
-              dolorum inventore expedita obcaecati itaque!
+            If you want to be a better person and also a successful person then it's high time to change your habits. Stay with us for more life-changing solutions.
             </p>
+            <div className="d-flex gap-2 fs-3">
+            <Link className={theme? 'text-secondary' : 'text-light'}><FaFacebookSquare/></Link>
+            <Link className={theme? 'text-secondary' : 'text-light'}><FaLinkedin/></Link>
+            <Link className={theme? 'text-secondary' : 'text-light'}><FaTwitterSquare/></Link>
+            <Link className={theme? 'text-secondary' : 'text-light'}><FaInstagramSquare/></Link>
+            </div>
           </Col>
 
           <Col className="px-5">
