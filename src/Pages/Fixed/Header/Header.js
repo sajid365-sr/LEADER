@@ -39,7 +39,7 @@ const Header = () => {
       className="shadow-lg py-2"
       
     >
-      <Container>
+      <Container className="gap-4">
         {/* Logo */}
         <Link to="/home" className="fw-bold text-decoration-none fs-5">
           {
@@ -59,7 +59,7 @@ const Header = () => {
           <span className={theme? 'text-dark' : 'text-light ms-2'}> L E A D E R</span>
         </Link>
 
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Toggle className={!theme && 'bg-light'} aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* pages */}
           <Nav className="mx-auto gap-4">
@@ -128,7 +128,7 @@ const Header = () => {
 
             {/* user photo */}
             
-            <Link className="ms-3" to='/profile'>
+            <Link className="ms-3">
               {user?.photoURL ? (
                 <>
                 <OverlayTrigger
