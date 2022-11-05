@@ -10,7 +10,7 @@ const Course = ({ cData }) => {
     cData;
   return (
     <Col lg="4" className="g-3">
-      <Card className="mb-5 h-100">
+      <Card className="mb-5" style={{height:'550px'}}>
         <Card.Body className={`position-relative p-0 ${!theme && 'text-light bg-dark'}`}>
           <Card.Img variant="top" src={image} style={{ width: "100%" }} />
           <Card.Title className={`ps-3 pt-1 mb-3 ${!theme && "text-info"}`}>{topic}</Card.Title>

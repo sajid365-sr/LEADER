@@ -1,0 +1,32 @@
+
+.main-container{
+    
+    height: 90vh;
+    background-image:linear-gradient(to right, rgba(0, 0, 0, 0.692)0%,rgba(0, 0, 0, 0.363)100%), url('https://cdn.pixabay.com/photo/2016/11/14/03/16/book-1822474_960_720.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.secondary-container{
+    width: 45%;
+    padding: 10% 0;
+    margin: auto;
+}
+.secondary-container h1{
+    font-size: 50px;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.808);
+}
+.input-wrap{
+    background-color: white;
+    padding: 6px 10px;
+}
+.input-wrap input{
+    border: none;
+    outline: none;
+    padding: 3px 10px;
+}
+/* .input-wrap button{
+    width: 35px;
+} */

@@ -37,13 +37,12 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+      
         updateUserProfile(name);
         // handleEmailVerification();
         setError("");
         form.reset();
-        // toast.success('Check your email to verify.');
+    
         navigate('/login');
       })
       .catch((e) => {
@@ -55,8 +54,7 @@ const Register = () => {
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+      
       })
       .catch((e) => console.error(e));
   };
@@ -65,8 +63,7 @@ const Register = () => {
   const handleFacebookSignIn = () => {
     providerLogin(facebookProvider)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+      
       })
       .catch((e) => console.error(e));
   };
@@ -74,8 +71,7 @@ const Register = () => {
   const handleGitHubSignIn = () => {
     providerLogin(gitHubProvider)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+      
       })
       .catch((e) => console.error(e));
   };
