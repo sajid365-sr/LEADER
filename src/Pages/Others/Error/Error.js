@@ -20,7 +20,7 @@ const Error = () => {
           something is wrong, report a problem.
         </p>
         <div className="btn">
-          <Link to="/">
+          <Link to="/home">
             <button>RETURN HOME</button>
           </Link>
 

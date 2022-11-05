@@ -41,7 +41,7 @@ const Header = () => {
     >
       <Container>
         {/* Logo */}
-        <Link to="/" className="fw-bold text-decoration-none fs-5">
+        <Link to="/home" className="fw-bold text-decoration-none fs-5">
           {
             theme?
             <Image
@@ -63,6 +63,9 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           {/* pages */}
           <Nav className="mx-auto gap-4">
+            <Link className="text-decoration-none text-dark" to="/home">
+              <Button variant="light">Home</Button>
+            </Link>
             <Link className="text-decoration-none text-dark" to="/courses">
               <Button variant="light">Courses</Button>
             </Link>

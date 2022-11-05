@@ -9,9 +9,10 @@ import Register from "../../Pages/Register/Register";
 import TermsAndCondition from "../../Pages/Others/TermsAndCondition";
 import CourseLayout from "../../Layout/Course/CourseLayout";
 import CourseDetails from "../../Pages/Others/CourseDetails";
-import Checkout from "../../Pages/Others/Checkout";
 import PrivateRoutes from "../PrivateRoute/PrivateRoutes";
 import Error from "../../Pages/Others/Error/Error";
+import Checkout from "../../Pages/Others/Checkout/Checkout";
+import Home from "../../Pages/Home/Home";
 
 
 export const router = createBrowserRouter([
@@ -42,6 +43,10 @@ export const router = createBrowserRouter([
               }
             ],
             
+        },
+        {
+          path:'/home',
+          element:<Home></Home>
         },
         {
             path:'/faq',

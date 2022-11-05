@@ -2,7 +2,8 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
-import { ToggleThemeContext } from '../../Contexts/ThemeContext/ThemeContext';
+import { ToggleThemeContext } from '../../../Contexts/ThemeContext/ThemeContext';
+
 
 const Checkout = () => {
     const {id, price, topic} = useLoaderData();

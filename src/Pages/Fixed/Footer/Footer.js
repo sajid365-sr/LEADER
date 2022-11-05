@@ -12,7 +12,7 @@ const Footer = () => {
   const { theme } = useContext(ToggleThemeContext);
 
   return (
-    <div className={`py-5 ${theme? "bg-secondary bg-opacity-25" : "bg-black"}`}>
+    <div className={`pt-5 pb-2 ${theme? "bg-secondary bg-opacity-25" : "bg-dark"}`}>
       {
         !theme && <hr className="mb-5"/>
       }
@@ -43,6 +43,9 @@ const Footer = () => {
           </Col>
 
           <Col className="px-5">
+          <Link className={`footerLink ${theme? 'text-dark border-dark': 'text-light'}`} to="/home">
+              Home
+            </Link>
           <Link className={`footerLink ${theme? 'text-dark border-dark': 'text-light'}`} to="/courses">
               Courses
             </Link>
@@ -56,12 +59,12 @@ const Footer = () => {
 
           <Col>
           <p>Need Help?</p>
-          <p><Link to='/terms'>Terms of Service</Link></p>
+          <p><Link className={!theme && "text-info"} to='/terms'>Terms of Service</Link></p>
           
-              <Link className="text-decoration-none me-3" to="/login">
+              <Link className={`text-decoration-none me-3 ${!theme && "text-info"}`} to="/login">
                 Login
               </Link>
-              <Link className="text-decoration-none" to="/register">
+              <Link className={`text-decoration-none ${!theme && "text-info"}`} to="/register">
                 Register
               </Link>
            

@@ -17,6 +17,10 @@ const UserContext = ({children}) => {
     // Google/Facebook/GitHub sign up
     const providerLogin = (provider) =>{
         setLoading(true);
+        setTimeout(() => {
+            toast.success("Login Successfully");
+        }, 5000);
+        
         return signInWithPopup(auth, provider);
     }
 
@@ -29,12 +33,16 @@ const UserContext = ({children}) => {
     // Email/Password login
     const signIn = (email,password) =>{
         setLoading(true);
+        setTimeout(() => {
+            toast.success("Login Successfully");
+        }, 5000);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
     // Logout
     const logOut = () =>{
         setLoading(true);
+        toast.success("Logout Successfully");
         return signOut(auth);
     }
 
@@ -42,7 +50,7 @@ const UserContext = ({children}) => {
     useEffect( () =>{
         const unsubscribe = onAuthStateChanged(auth, (createUser =>{
             setUser(createUser);
-            toast.success("Login Successfully");
+            
             setLoading(false);
         }))
         return () =>{
