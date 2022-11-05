@@ -1,14 +1,14 @@
 
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-// import './FAQ.css'
+import './FAQ.css'
 
 const FAQ = () => {
     return (
         
         <div className='py-5 my-5'>
             <h2 className='text-center mb-4'>Frequently Asked Questions</h2>
-            <Accordion className='mx-auto' style={{width:'60%'}} defaultActiveKey="0" flush>
+            <Accordion className='mx-auto accordion' defaultActiveKey="0" flush>
        <Accordion.Item eventKey="0">
          <Accordion.Header>What is our main goal?</Accordion.Header>
          <Accordion.Body>

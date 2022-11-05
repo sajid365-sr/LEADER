@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ToggleThemeContext } from "../../Contexts/ThemeContext/ThemeContext";
+import './TermsAndCondition.css'
 
 const TermsAndCondition = () => {
   const { theme } = useContext(ToggleThemeContext);
 
   return (
     <div className="my-5">
-      <Container className="w-75 py-5">
+      <Container className="termsContainer py-5">
         <h3 className={`fw-bold ${!theme && "text-warning"}`}>
           PRIVACY & REFUND POLICY
         </h3>

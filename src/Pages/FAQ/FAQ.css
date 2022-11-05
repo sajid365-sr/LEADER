@@ -1,24 +1,15 @@
 
 
-.mainContainer{
-    background-image: linear-gradient(rgba(165, 29, 29, 0.671),rgba(29, 165, 158, 0.774));
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    
-}
-
 .accordion{
-    width: 70%;
-    padding-top: 7%;
-    font-family: poppins;
+    width: 60%;
+   
     
 }
 
 @media only screen and (max-width:575px) {
     .accordion{
         width: 90%;
-        margin-top: 30%;
+       
     }
     
 }
