@@ -27,6 +27,14 @@
     outline: none;
     padding: 3px 10px;
 }
-/* .input-wrap button{
-    width: 35px;
-} */
+
+@media only screen and (max-width:575px) {
+    .secondary-container{
+        width: 100%;
+        padding: 10% 15px;
+    }
+    .secondary-container h1{
+        font-size: 40px;
+        margin: 0 20px;
+    }
+}

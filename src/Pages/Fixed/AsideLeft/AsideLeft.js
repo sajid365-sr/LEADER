@@ -23,7 +23,7 @@ const AsideLeft = () => {
         >
           <button
             style={{ width: "90%" }}
-            className={`fw-semibold border-0 px-3 py-2 ${
+            className={`fw-semibold border-0 px-3 py-2  ms-3 ms-lg-0 ${
               theme ? "text-dark" : "text-info bg-dark"
             }`}
           >

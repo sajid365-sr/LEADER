@@ -22,7 +22,7 @@ const Home = () => {
               Time Management
             </button>
           </p>
-          <p className="d-flex gap-3">
+          <p className="d-flex align-items-center gap-3">
             <button className="btn btn-outline-info rounded-0">
               Money Management
             </button>
