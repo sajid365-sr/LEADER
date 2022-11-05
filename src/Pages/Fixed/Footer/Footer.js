@@ -18,7 +18,8 @@ const Footer = () => {
       }
       <Container>
         <Row>
-          <Col>
+          <Col lg='4' className="text-center text-lg-start">
+            <div className="d-flex d-lg-block flex-column align-items-center gap-3">
             {theme ? (
               <Image
                 src={logo}
@@ -28,13 +29,14 @@ const Footer = () => {
             ) : (
               <Image src={logo1} width="55px" className="rounded"></Image>
             )}
-            <span className={theme ? "text-dark fw-semibold" : "text-light ms-3 fw-semibold"}>
+            <span className={theme ? "text-dark fw-semibold" : "text-light ms-0 ms-lg-3 fw-semibold"}>
               L E A D E R
             </span>
+            </div>
             <p className="mt-3">
             If you want to be a better person and also a successful person then it's high time to change your habits. Stay with us for more life-changing solutions.
             </p>
-            <div className="d-flex gap-2 fs-3">
+            <div className="d-flex gap-2 fs-3 justify-content-center justify-content-lg-start mb-5">
             <Link className={theme? 'text-secondary' : 'text-light'}><FaFacebookSquare/></Link>
             <Link className={theme? 'text-secondary' : 'text-light'}><FaLinkedin/></Link>
             <Link className={theme? 'text-secondary' : 'text-light'}><FaTwitterSquare/></Link>
@@ -42,7 +44,7 @@ const Footer = () => {
             </div>
           </Col>
 
-          <Col className="px-5">
+          <Col lg='4' className="px-5">
           <Link className={`footerLink ${theme? 'text-dark border-dark': 'text-light'}`} to="/home">
               Home
             </Link>
@@ -57,7 +59,7 @@ const Footer = () => {
             </Link>
           </Col>
 
-          <Col>
+          <Col lg='4' className="d-none d-lg-block">
           <p>Need Help?</p>
           <p><Link className={!theme && "text-info"} to='/terms'>Terms of Service</Link></p>
           
@@ -70,7 +72,7 @@ const Footer = () => {
            
           </Col>
         </Row>
-        <Row className="text-center mt-4" style={{letterSpacing:'3px'}}>
+        <Row className="text-center mt-4 copyright">
           <p>&copy; 2022, All right reserved by Leader.inc</p>
         </Row>
       </Container>

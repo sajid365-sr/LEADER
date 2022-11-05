@@ -11,3 +11,11 @@
    border-bottom: 1px solid whitesmoke;
    letter-spacing: 3px;
 }
+.copyright{
+   letter-spacing: 3px;   
+}
+@media only screen and (max-width:575px) {
+   .copyright{
+      letter-spacing: normal;
+   }
+}
