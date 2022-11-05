@@ -13,7 +13,7 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
 } from "firebase/auth";
-import { Toaster } from "react-hot-toast";
+import './Login.css'
 
 const Login = () => {
   const { theme } = useContext(ToggleThemeContext);
@@ -80,8 +80,7 @@ const Login = () => {
     <div>
       <Form
         onSubmit={handleSubmit}
-        style={{ width: "40%" }}
-        className={`mx-auto my-5 px-5 py-5 rounded rounded-4 ${
+        className={`mx-auto my-5 px-5 py-5 rounded rounded-4 loginForm ${
           theme ? "bg-secondary bg-opacity-10" : "bg-secondary bg-opacity-50 "
         }`}
       >

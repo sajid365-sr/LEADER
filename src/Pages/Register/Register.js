@@ -13,6 +13,7 @@ import {
   GithubAuthProvider,
   GoogleAuthProvider,
 } from "firebase/auth";
+import './Register.css'
 
 const Register = () => {
   const { theme } = useContext(ToggleThemeContext);
@@ -92,8 +93,8 @@ const updateUserProfile = (name) => {
   return (
     <div>
       <Form
-        style={{ width: "40%" }}
-        className={`mx-auto px-5 py-3 my-5 rounded rounded-4 ${
+        
+        className={`mx-auto px-5 py-3 my-5 rounded rounded-4 registerForm ${
           theme ? "bg-secondary bg-opacity-10" : "bg-secondary bg-opacity-50 "
         }`}
         onSubmit={handleSubmit}

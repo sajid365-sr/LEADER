@@ -1,0 +1,10 @@
+
+.registerForm{
+    width: 40%;
+}
+
+@media only screen and (max-width:575px) {
+    .registerForm{
+        width: 95%;
+    }
+}
